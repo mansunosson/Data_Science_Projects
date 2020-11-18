@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Nov 11 14:55:42 2020
-
-@author: M
-"""
-
 # Script to convert front and side view image to mannequin
 
 # NOTES:
