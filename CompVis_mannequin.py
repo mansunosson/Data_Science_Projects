@@ -17,7 +17,7 @@ import os
 import cv2
 import matplotlib.pyplot as plt
 
-os.chdir(r"C:\Users\M\Desktop\Wardrobe Project")
+os.chdir(r"path")
 print(os.getcwd()) # Prints the current working directory
 
 
