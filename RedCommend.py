@@ -6,9 +6,14 @@ Created on Wed Nov 18 17:09:34 2020
 """
 
 # Recommendation app for red wines
+#
+# The app requires data set "data.csv" which I will not upload. It can however be recreated using the python script red_wine_webscraper.py.
+
+# To run the app, open a terminal and run the following lines of code: cd <path to directory>
+#                                                                      python RedCommend.py
 
 
-# Define function to recommend a wine
+# Get dependencies
 import pandas as pd
 from pandasql import sqldf
 from tkinter import *
@@ -17,6 +22,7 @@ from tkinter import *
 root = Tk()
 root.geometry("390x340")
 
+# Define query function that filters wines in data.csv using sqldf
 def winequery(minprice, maxprice, body, tannins, fruit):
     try:
         wines = pd.read_csv(r'data.csv', encoding='ISO-8859-1')
@@ -37,7 +43,8 @@ def winequery(minprice, maxprice, body, tannins, fruit):
             return "You could try " + randwine.iloc[0]["wine"] + " from " + randwine.iloc[0]["country"] + " at " + str(int(round(randwine.iloc[0]["ppf"])))  + " per bottle."
     except:
         return "Make sure to use valid inputs"
-    
+
+# Define what happens when pressing recommend button
 def recommend():
     recwine = winequery(minpriceinput.get(), maxpriceinput.get(), bodyinput.get(), tanninsinput.get(), fruitinput.get())
     reclabel.configure(text = recwine)
@@ -89,5 +96,5 @@ fruitlabel.place(x = 66, y = 180)
 recbutton = Button(root, text = "Recommend a wine", command = recommend)
 recbutton.place(x = 25, y = 220)
 
-# 
+# Run the window
 root.mainloop()
